@@ -159,12 +159,12 @@ class ArabicChars(object):
 
         # Normalized Characterset in Arabic
         self.norm_in_arabic = ArabicChars.sort_char_list(self.arabic_normal_alpha+self.arabic_normal_punc+self.arabic_normal_diac+self.english_num) #,self.arabic_normal_diac_quranic
-        temp_str = '[^\w'+self.norm_in_arabic+']+'
+        temp_str = r'[^\w'+self.norm_in_arabic+']+'
         self.allowed_chars_pattern_normalized = re.compile(temp_str)
-        temp_str = '[^'+self.norm_in_arabic+']+'
+        temp_str = r'[^'+self.norm_in_arabic+']+'
         self.allowed_only_arabic_chars_pattern_normalized = re.compile(temp_str)
         self.non_arabic_regex = re.compile(
-            "[^0-9\u0600-\u06ff\u0750-\u077f\ufb50-\ufbc1\ufbd3-\ufd3f\ufd50-\ufd8f\ufd50-\ufd8f\ufe70-\ufefc\uFDF0-\uFDFD.0-9\s.,!?;،:؛»«؟]+")
+            r"[^0-9\u0600-\u06ff\u0750-\u077f\ufb50-\ufbc1\ufbd3-\ufd3f\ufd50-\ufd8f\ufd50-\ufd8f\ufe70-\ufefc\uFDF0-\uFDFD.0-9\s.,!?;،:؛»«؟]+")
 
         self.repetition_normalized = ArabicChars.sort_char_list(self.arabic_normal_alpha+"!?؟")
     @staticmethod
